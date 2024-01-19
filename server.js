@@ -20,4 +20,30 @@ function writeDbFile(notes) {
     fs.writeFileSync(dbFilePath, JSON.stringify(notes, null, 2));
 }
 
+app.get('/api/notes', (req, res) => {
+    const notes = readDbFile();
+    res.json(notes);
+});
+
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body;
+    const notes = readDbFile();
+
+
+newNote.id = Date.now().toString();
+    notes.push(newNote);
+
+    writeDbFile(notes);
+    res.json(newNote);
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+    const notes = readDbFile();
+    const filteredNotes = notes.filter((note) => note.id !== noteId);
+
+    writeDbFile(filteredNotes);
+    res.json({ msg: 'Note deleted' });
+});
+
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
