@@ -36,6 +36,11 @@ Note Taker is a simple application that allows users to write, save, and delete 
 `node start`
 - Open the application in your browser at http://localhost:3001.
 
+## Usage
+Create Notes: Enter a title and content for your note. Once you finish, a save button will appear in the top right corner. Clicking the save button stores the note.
+View Notes: Click on any saved note in the left-hand column to view its content.
+Delete Notes: Delete notes by clicking the trash icon next to any saved note.
+
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) <br/>
 This project is licensed under the MIT license. For more details, see [this link](https://opensource.org/licenses/MIT).
